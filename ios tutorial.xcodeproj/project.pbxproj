@@ -14,6 +14,14 @@
 		0060FB681EFBD76D0084ABD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0060FB661EFBD76D0084ABD7 /* LaunchScreen.storyboard */; };
 		0060FB731EFBD76D0084ABD7 /* ios_tutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0060FB721EFBD76D0084ABD7 /* ios_tutorialTests.swift */; };
 		0060FB7E1EFBD76D0084ABD7 /* ios_tutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0060FB7D1EFBD76D0084ABD7 /* ios_tutorialUITests.swift */; };
+		006DB2D01EFD24630041ED1D /* apple black.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DB2CC1EFD24630041ED1D /* apple black.png */; };
+		006DB2D11EFD24630041ED1D /* Apple blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DB2CD1EFD24630041ED1D /* Apple blue.png */; };
+		006DB2D21EFD24630041ED1D /* Button-Close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DB2CE1EFD24630041ED1D /* Button-Close-icon.png */; };
+		006DB2D31EFD24630041ED1D /* chinaz9.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DB2CF1EFD24630041ED1D /* chinaz9.png */; };
+		006DB2D51EFD24720041ED1D /* Green-power-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 006DB2D41EFD24720041ED1D /* Green-power-button.png */; };
+		006DB2D91EFD6D930041ED1D /* paintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DB2D81EFD6D930041ED1D /* paintVC.swift */; };
+		006DB2DB1EFD788F0041ED1D /* paintUIV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DB2DA1EFD788F0041ED1D /* paintUIV.swift */; };
+		00F21D1E1EFC205A00650E0B /* homeTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F21D1D1EFC205A00650E0B /* homeTbCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		0060FB791EFBD76D0084ABD7 /* ios tutorialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios tutorialUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0060FB7D1EFBD76D0084ABD7 /* ios_tutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_tutorialUITests.swift; sourceTree = "<group>"; };
 		0060FB7F1EFBD76D0084ABD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		006DB2CC1EFD24630041ED1D /* apple black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple black.png"; path = "../../../Downloads/apple black.png"; sourceTree = "<group>"; };
+		006DB2CD1EFD24630041ED1D /* Apple blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Apple blue.png"; path = "../../../Downloads/Apple blue.png"; sourceTree = "<group>"; };
+		006DB2CE1EFD24630041ED1D /* Button-Close-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Button-Close-icon.png"; path = "../../../Downloads/Button-Close-icon.png"; sourceTree = "<group>"; };
+		006DB2CF1EFD24630041ED1D /* chinaz9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chinaz9.png; path = ../../../Downloads/chinaz9.png; sourceTree = "<group>"; };
+		006DB2D41EFD24720041ED1D /* Green-power-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Green-power-button.png"; path = "../../../Downloads/Green-power-button.png"; sourceTree = "<group>"; };
+		006DB2D81EFD6D930041ED1D /* paintVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paintVC.swift; sourceTree = "<group>"; };
+		006DB2DA1EFD788F0041ED1D /* paintUIV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paintUIV.swift; sourceTree = "<group>"; };
+		00F21D1D1EFC205A00650E0B /* homeTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTbCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +113,16 @@
 		0060FB5C1EFBD76D0084ABD7 /* ios tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				006DB2CB1EFD24350041ED1D /* imgs */,
 				0060FB5D1EFBD76D0084ABD7 /* AppDelegate.swift */,
 				0060FB5F1EFBD76D0084ABD7 /* ViewController.swift */,
+				00F21D1D1EFC205A00650E0B /* homeTbCell.swift */,
 				0060FB611EFBD76D0084ABD7 /* Main.storyboard */,
 				0060FB641EFBD76D0084ABD7 /* Assets.xcassets */,
 				0060FB661EFBD76D0084ABD7 /* LaunchScreen.storyboard */,
 				0060FB691EFBD76D0084ABD7 /* Info.plist */,
+				006DB2D81EFD6D930041ED1D /* paintVC.swift */,
+				006DB2DA1EFD788F0041ED1D /* paintUIV.swift */,
 			);
 			path = "ios tutorial";
 			sourceTree = "<group>";
@@ -123,6 +143,18 @@
 				0060FB7F1EFBD76D0084ABD7 /* Info.plist */,
 			);
 			path = "ios tutorialUITests";
+			sourceTree = "<group>";
+		};
+		006DB2CB1EFD24350041ED1D /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				006DB2D41EFD24720041ED1D /* Green-power-button.png */,
+				006DB2CC1EFD24630041ED1D /* apple black.png */,
+				006DB2CD1EFD24630041ED1D /* Apple blue.png */,
+				006DB2CE1EFD24630041ED1D /* Button-Close-icon.png */,
+				006DB2CF1EFD24630041ED1D /* chinaz9.png */,
+			);
+			name = imgs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0060FB681EFBD76D0084ABD7 /* LaunchScreen.storyboard in Resources */,
+				006DB2D01EFD24630041ED1D /* apple black.png in Resources */,
 				0060FB651EFBD76D0084ABD7 /* Assets.xcassets in Resources */,
+				006DB2D11EFD24630041ED1D /* Apple blue.png in Resources */,
+				006DB2D31EFD24630041ED1D /* chinaz9.png in Resources */,
+				006DB2D51EFD24720041ED1D /* Green-power-button.png in Resources */,
 				0060FB631EFBD76D0084ABD7 /* Main.storyboard in Resources */,
+				006DB2D21EFD24630041ED1D /* Button-Close-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0060FB601EFBD76D0084ABD7 /* ViewController.swift in Sources */,
+				006DB2DB1EFD788F0041ED1D /* paintUIV.swift in Sources */,
+				006DB2D91EFD6D930041ED1D /* paintVC.swift in Sources */,
 				0060FB5E1EFBD76D0084ABD7 /* AppDelegate.swift in Sources */,
+				00F21D1E1EFC205A00650E0B /* homeTbCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +547,7 @@
 				0060FB841EFBD76D0084ABD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0060FB851EFBD76D0084ABD7 /* Build configuration list for PBXNativeTarget "ios tutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +556,7 @@
 				0060FB871EFBD76D0084ABD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0060FB881EFBD76D0084ABD7 /* Build configuration list for PBXNativeTarget "ios tutorialUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +565,7 @@
 				0060FB8A1EFBD76D0084ABD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

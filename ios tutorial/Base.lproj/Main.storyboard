@@ -1,26 +1,147 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ios_tutorial" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjO-w4-vxY">
+                                <rect key="frame" x="92" y="143" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-350" y="-6"/>
+        </scene>
+        <!--PaintVC-->
+        <scene sceneID="Pb1-2A-3lk">
+            <objects>
+                <viewController storyboardIdentifier="paint" id="eAs-be-TTp" customClass="paintVC" customModule="ios_tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="crb-UT-yPW"/>
+                        <viewControllerLayoutGuide type="bottom" id="c1M-kc-oPm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JJV-Ps-W6b">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7zD-vM-7ot">
+                                <rect key="frame" x="28" y="56.5" width="66.5" height="262.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1MI-HJ-f4W">
+                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="262.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpP-Zs-xru">
+                                                <rect key="frame" x="0.0" y="0.0" width="66.5" height="65.5"/>
+                                                <state key="normal" title="home"/>
+                                                <connections>
+                                                    <segue destination="Gcz-BL-mVn" kind="unwind" unwindAction="HomeWithSeque:" id="DDX-PX-Pmp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5t5-fe-e9t">
+                                                <rect key="frame" x="0.0" y="65.5" width="66.5" height="66"/>
+                                                <state key="normal" title="updo"/>
+                                                <connections>
+                                                    <action selector="updo:" destination="eAs-be-TTp" eventType="touchUpInside" id="984-m4-pv3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKm-jP-lQ9">
+                                                <rect key="frame" x="0.0" y="131.5" width="66.5" height="65.5"/>
+                                                <state key="normal" title="redo"/>
+                                                <connections>
+                                                    <action selector="redo:" destination="eAs-be-TTp" eventType="touchUpInside" id="qnO-uH-aMS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42x-DJ-MJ7">
+                                                <rect key="frame" x="0.0" y="197" width="66.5" height="65.5"/>
+                                                <state key="normal" title="clear"/>
+                                                <connections>
+                                                    <action selector="clear:" destination="eAs-be-TTp" eventType="touchUpInside" id="HQt-BY-z7P"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQZ-e1-gsP" customClass="paintUIV" customModule="ios_tutorial" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="36" width="536.5" height="331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wub-JX-TfT">
+                                <rect key="frame" x="28" y="26" width="66.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8f-1K-awp">
+                                <rect key="frame" x="13" y="337" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ffff:" destination="eAs-be-TTp" eventType="touchUpInside" id="FF8-8H-1MC"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-n1-ax0">
+                                <rect key="frame" x="-7" y="336" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="jjjjj:" destination="eAs-be-TTp" eventType="touchUpInside" id="V9n-ws-T00"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1MI-HJ-f4W" firstAttribute="width" secondItem="JJV-Ps-W6b" secondAttribute="width" multiplier="0.1" id="4G8-Ia-wT8"/>
+                            <constraint firstItem="LQZ-e1-gsP" firstAttribute="top" secondItem="JJV-Ps-W6b" secondAttribute="topMargin" constant="36" id="5s0-Qu-mjQ"/>
+                            <constraint firstItem="1MI-HJ-f4W" firstAttribute="height" secondItem="JJV-Ps-W6b" secondAttribute="height" multiplier="0.7" id="BuS-y8-WBz"/>
+                            <constraint firstItem="Wub-JX-TfT" firstAttribute="leading" secondItem="JpP-Zs-xru" secondAttribute="leading" id="C6P-bK-s2d"/>
+                            <constraint firstItem="Wub-JX-TfT" firstAttribute="trailing" secondItem="JpP-Zs-xru" secondAttribute="trailing" id="HSs-TC-U34"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LQZ-e1-gsP" secondAttribute="trailing" constant="8" id="LQi-eq-dVI"/>
+                            <constraint firstItem="7zD-vM-7ot" firstAttribute="leading" secondItem="JJV-Ps-W6b" secondAttribute="leadingMargin" constant="8" id="WDi-WU-9Ru"/>
+                            <constraint firstItem="LQZ-e1-gsP" firstAttribute="leading" secondItem="7zD-vM-7ot" secondAttribute="trailing" constant="8" id="WTr-s8-jhS"/>
+                            <constraint firstItem="7zD-vM-7ot" firstAttribute="top" secondItem="Wub-JX-TfT" secondAttribute="bottom" constant="10" id="mZq-Lf-HYR"/>
+                            <constraint firstItem="7zD-vM-7ot" firstAttribute="top" secondItem="Wub-JX-TfT" secondAttribute="bottom" constant="10" id="oNl-xR-ATl"/>
+                            <constraint firstItem="7zD-vM-7ot" firstAttribute="centerY" secondItem="JJV-Ps-W6b" secondAttribute="centerY" id="qPt-Wd-57b"/>
+                            <constraint firstItem="c1M-kc-oPm" firstAttribute="top" secondItem="LQZ-e1-gsP" secondAttribute="bottom" constant="8" id="uUh-Ho-MVr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="painter" destination="LQZ-e1-gsP" id="SrH-kV-sQi"/>
+                        <outlet property="typech" destination="y8f-1K-awp" id="1hd-Kx-ZIN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4x-92-Txq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Gcz-BL-mVn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="356" y="-7"/>
         </scene>
     </scenes>
 </document>
