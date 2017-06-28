@@ -19,10 +19,51 @@ class paintUIV: UIView {
     private var relineCount = 0
     private var typedraw:Int = 0
     private var proplines:[Int:Int] = [0:0]
+    private var pepole = UIImage(named: "pepole.jpg")
+    private var pepoleW:CGFloat?
+    private var pepoleH:CGFloat?
+    private var viewW:CGFloat?
+    private var viewH:CGFloat?
+    private var pepole2 = UIImage(named: "pepole2.jpg")
+    private var pepole2W:CGFloat?
+    private var pepole2H:CGFloat?
+    private var dx:CGFloat = 2
+    private var dy:CGFloat = 2
+    private var px:CGFloat?
+    private var py:CGFloat?
     
-    private func drawInit(){
+    private func drawInit(_ rect:CGRect){
+        isInit = true
         context = UIGraphicsGetCurrentContext()
+        pepoleW = pepole?.size.width
+        pepoleH = pepole?.size.height
+        pepole2W = pepole2?.size.width
+        pepole2H = pepole2?.size.height
+        viewW = rect.size.width
+        viewH = rect.size.height
+        px = 0
+        py = 0
+        print(px)
+        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: {(timer) in
+        self.drawimg()
+        })
+    }
+    
+    private func drawimg(){
+        move()
+        setNeedsDisplay()
+    }
+    
+    private func move(){
+        if px! < 0 || px! > viewW! - pepole2W! {
+            dx *= -1
+        }
+        if py! < 0 || py! > viewH! - pepole2H! {
+            dy *= -1
+        }
         
+        px! += dx
+        py! += dy
     }
     
     func changeType(_ num:Int){
@@ -46,7 +87,7 @@ class paintUIV: UIView {
         let point = touch?.location(in: self)
         line.append((point!.x,point!.y))
         lines[lineCount] = line
-        setNeedsDisplay()
+//        setNeedsDisplay()
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
@@ -62,8 +103,7 @@ class paintUIV: UIView {
             relineCount += 1
             relines[relineCount] = lines.removeValue(forKey: lineCount)
             lineCount -= 1
-            print("updo=>relineCount = \(relineCount):lineCount = \(lineCount)")
-            setNeedsDisplay()
+//            setNeedsDisplay()
         }
     }
     
@@ -72,22 +112,23 @@ class paintUIV: UIView {
             lineCount += 1
             lines[lineCount] = relines.removeValue(forKey: relineCount)
             relineCount -= 1
-            print("redo=>relineCount = \(relineCount):lineCount = \(lineCount)")
-            setNeedsDisplay()
+//            setNeedsDisplay()
         }
         
     }
     func clear(){
         lines = [0:[]]
         lineCount = 0
-        setNeedsDisplay()
+//        setNeedsDisplay()
     }
 
     
     override func draw(_ rect: CGRect) {
         
-        if !isInit {drawInit()}
+        if !isInit {drawInit(rect)}
         
+        pepole?.draw(in: CGRect(x: 0, y: 0, width:pepoleW!/3 , height: pepoleH!/3))
+        pepole2?.draw(in: CGRect(x: px!, y: py!, width:pepole2W! , height: pepole2H!))
         
         for name in 1..<lines.count{
             
@@ -95,6 +136,7 @@ class paintUIV: UIView {
             
             context?.setLineWidth(2)
             context?.setStrokeColor(red: 1, green: 0, blue: 0, alpha: 1)
+            
         
             let typedrawTemp:Int = proplines[name] ?? 0
             
@@ -116,6 +158,7 @@ class paintUIV: UIView {
     
     private func normalLine(_ name:Int){
         let (p0x,p0y) = lines[name]![0]
+        
         context?.move(to: CGPoint(x:p0x,y:p0y))
         
         var i = 1
@@ -136,6 +179,7 @@ class paintUIV: UIView {
         var pi:Double = M_PI
         
         let (p0x,p0y) = lines[name]![0]
+        
         context?.move(to: CGPoint(x:p0x,y:p0y))
         
         var i = 1

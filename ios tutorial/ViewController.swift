@@ -17,7 +17,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     private var tbView:UITableView?
     private var titleLabel:UILabel?
-    var tutorialtitle = ["button","image","猜數字","隨機數字","自訂tableview","小畫家"]
+    private let BGcolor = UIColor(colorLiteralRed: 0.55, green: 0.50, blue: 0.66, alpha: 0.5)
+    var tutorialtitle = ["button","image","猜數字","隨機數字","自訂tableview","小畫家","touch event","thread","計時器","WebMySQL"]
     var screenSize:CGRect?
     
     override func viewDidLoad() {
@@ -27,14 +28,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         print(type(of:screenSize))
         
-        let titleCG = CGRect(x: screenSize!.width * 0.15, y: 22, width: screenSize!.width * 0.7, height: screenSize!.height * 0.05)
+        let titleCG = CGRect(x: screenSize!.width * 0.15, y: 45, width: screenSize!.width * 0.7, height: screenSize!.height * 0.05)
         titleLabel = UILabel(frame: titleCG)
         titleLabel?.text = "IOS Tutorial"
-        titleLabel?.font = UIFont(name: "Arial", size: 20)
+        titleLabel?.font = UIFont(name: "Arial", size: 25)
+        titleLabel?.textColor = UIColor.black
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         titleLabel?.textAlignment = .center
         view.addSubview(titleLabel!)
 
-        let tbViewCG = CGRect(x: screenSize!.width * 0.1, y: 122, width: screenSize!.width * 0.8 , height: screenSize!.height * 0.8)
+        let tbViewCG = CGRect(x: screenSize!.width * 0.1, y: 122, width: screenSize!.width * 0.8 , height: screenSize!.height * 0.6)
         //建構式
         tbView = UITableView(frame: tbViewCG, style: UITableViewStyle.plain)
         //自訂cell class
@@ -47,6 +50,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //Note don't forget add protocol in viewcontroller
         tbView?.delegate = self
         tbView?.dataSource = self
+        tbView?.layer.cornerRadius = 10
+//        tbView?.layer.masksToBounds = true
+        
+        tbView?.backgroundColor = UIColor(colorLiteralRed: 0.55, green: 0.50, blue: 0.66, alpha: 0)
         
         view.addSubview(tbView!)
     
@@ -74,10 +81,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cellCG = CGRect(x: viewSize!.width * 0.1, y: 0, width: viewSize!.width * 0.7 , height: viewSize!.height)
         cellLabel = UILabel(frame: cellCG)
         cellLabel?.text = tutorialtitle[indexPath.row]
-        cellLabel?.font = UIFont(name: "Arial", size: 15)
+        cellLabel?.font = UIFont(name: "SF Mono", size: 18)
         cellLabel?.textAlignment = .left
         cell?.contentView.addSubview(cellLabel!)
-
+        cell?.backgroundColor = UIColor(colorLiteralRed: 0.45, green: 0.50, blue: 0.55, alpha: 0.2)
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(colorLiteralRed: 0.45, green: 0.50, blue: 0.55, alpha: 0.2)
+        cell?.selectedBackgroundView = bgColorView
         
         let img = UIImage(named: "Apple black.png")
         let imgH = UIImage(named: "Apple blue.png")
@@ -85,6 +95,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         temp.contentMode = UIViewContentMode.scaleAspectFit
         temp.frame = CGRect(x: 0, y: 0, width: viewSize!.width * 0.1, height: viewSize!.height)
         cell?.contentView.addSubview(temp as UIView)
+        
+        
     
         return cell!
     }
@@ -100,6 +112,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let app = UIApplication.shared.delegate as! AppDelegate
             app.tutotrial = String?(tutorialtitle[target])
             show(targetVC!, sender: self)
+        case 6:
+            let targetVC = storyboard?.instantiateViewController(withIdentifier: "touchvc")
+            show(targetVC!, sender: self)
+        case 7:
+            let targetVC = storyboard?.instantiateViewController(withIdentifier: "threadvc")
+            show(targetVC!, sender: self)
+        case 8:
+            let targetVC = storyboard?.instantiateViewController(withIdentifier: "Stopcountvc")
+            show(targetVC!, sender: self)
+        case 9:
+            let targetVC = storyboard?.instantiateViewController(withIdentifier: "webvc")
+            show(targetVC!, sender: self)
+            
         default:
             print("no")
         }

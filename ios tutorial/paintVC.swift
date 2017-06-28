@@ -10,22 +10,29 @@ import UIKit
 
 class paintVC: UIViewController {
     
+    private var btnProp = false
+    
+    
     @IBOutlet weak var painter: paintUIV!
     
-    @IBOutlet weak var typech: UITextField!
+    @IBOutlet weak var drawStroke: UIStackView!
     
-    @IBAction func ffff(_ sender: Any) {
-        
+    @IBAction func stroke(_ sender: Any) {
+        painter.changeType(0)
     }
     
+    @IBAction func rectstroke(_ sender: Any) {
+        painter.changeType(2)
+    }
 
-    @IBAction func jjjjj(_ sender: Any) {
-        if let typenum = typech.text{
-            painter.changeType(Int(typenum)!)
-        }
-//        print(typeCh.text ?? "0")
-//        painter.changeType(typenum!)
-        
+    @IBAction func tristroke(_ sender: Any) {
+        painter.changeType(3)
+    }
+    
+    
+    @IBAction func clickstroke(_ sender: Any) {
+        drawStroke.isHidden = btnProp
+        btnProp = !btnProp
     }
     
     
@@ -46,8 +53,7 @@ class paintVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        drawStroke.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
