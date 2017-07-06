@@ -7,17 +7,54 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    var db:OpaquePointer?
     var tutotrial :String?
+    
+    let fmgr = FileManager.default
+    let docDir = NSHomeDirectory() + "/Documents"
+    let gamerdata = Bundle.main.path(forResource: "gamer", ofType: "plist")
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        //記得到google developer https://console.firebase.google.com/註冊domain
+        FirebaseApp.configure()
+        if !fmgr.fileExists(atPath: docDir + "/gamedata.plist"){
+            do{
+                //                print(docDir)
+                try fmgr.copyItem(atPath: gamerdata!, toPath: docDir + "/gamedata.plist")
+            }catch{
+                print(error)
+            }
+        }
+        //--------------資料庫-------------------------
+        
+        let mydb = Bundle.main.path(forResource: "mydb", ofType: "")
+        
+        let newdb = docDir + "/mydb.sqlite"
+        
+        if !fmgr.fileExists(atPath: newdb){
+            do{
+                try fmgr.copyItem(atPath: mydb!, toPath: newdb)
+                print("ok")
+            }catch{
+                print(error)
+            }
+        }
+        //這裡是在將資料庫的table的記憶體地址付給db
+        if sqlite3_open(newdb, &db) == SQLITE_OK{
+            print("OK")
+        }else{
+            print("NG")
+        }
+        
+        
         return true
     }
 
@@ -40,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        sqlite3_close(db)
     }
 
 

@@ -24,7 +24,7 @@ class paintUIV: UIView {
     private var pepoleH:CGFloat?
     private var viewW:CGFloat?
     private var viewH:CGFloat?
-    private var pepole2 = UIImage(named: "pepole2.jpg")
+    private var pepole2 = UIImage(named: "volleyball1.png")
     private var pepole2W:CGFloat?
     private var pepole2H:CGFloat?
     private var dx:CGFloat = 2
@@ -44,21 +44,35 @@ class paintUIV: UIView {
         px = 0
         py = 0
         print(px)
-        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: {(timer) in
-        self.drawimg()
-        })
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: {(timer) in
+                self.drawimg()
+            })
+        } else {
+            Timer.scheduledTimer(timeInterval: 0.02,
+                                 target: self,
+                                 selector: #selector(cdrawimg),
+                                 userInfo: nil,
+                                 repeats: true)
+        }
     }
     
-    private func drawimg(){
+    @objc private func cdrawimg(){
+        move()
+        setNeedsDisplay()
+    }
+    
+    
+    @objc private func drawimg(){
         move()
         setNeedsDisplay()
     }
     
     private func move(){
-        if px! < 0 || px! > viewW! - pepole2W! {
+        if px! < 0 || px! > viewW! - pepole2W!/10 {
             dx *= -1
         }
-        if py! < 0 || py! > viewH! - pepole2H! {
+        if py! < 0 || py! > viewH! - pepole2H!/10 {
             dy *= -1
         }
         
@@ -128,7 +142,7 @@ class paintUIV: UIView {
         if !isInit {drawInit(rect)}
         
         pepole?.draw(in: CGRect(x: 0, y: 0, width:pepoleW!/3 , height: pepoleH!/3))
-        pepole2?.draw(in: CGRect(x: px!, y: py!, width:pepole2W! , height: pepole2H!))
+        pepole2?.draw(in: CGRect(x: px!, y: py!, width:pepole2W!/10 , height: pepole2H!/10))
         
         for name in 1..<lines.count{
             

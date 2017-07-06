@@ -60,12 +60,26 @@ class StopcountVC: UIViewController ,UITableViewDataSource,UITableViewDelegate {
     }
     
     private func doStart(){
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: {(timer) in
-            self.count += 1
-            self.showCount()
-        })
+        if #available(iOS 10.0, *) {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: {(timer) in
+                self.count += 1
+                self.showCount()
+            })
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 0.01,
+                                 target: self,
+                                 selector: #selector(ccount),
+                                 userInfo: nil,
+                                 repeats: true)
+
+        }
         
     }
+    @objc private func ccount(){
+        self.count += 1
+        self.showCount()
+    }
+    
     private func doStop(){
         timer?.invalidate()
         timer = nil
